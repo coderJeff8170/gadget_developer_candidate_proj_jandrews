@@ -56,9 +56,7 @@ export default class {
     }
 
     if (!this.elementReference.classList.contains("visible")) {
-      this.bodyElement.classList.remove("hide");
-      this.elementReference.classList.add("visible");
-      this.iconElement.classList.add("flipArrow");
+      this.showInfo();
       if (nextElement) {
         nextElement.classList.add("active");
         nextIcon.innerHTML = ARROW_ICON;
@@ -71,9 +69,30 @@ export default class {
         nextElement.classList.remove("active");
         nextIcon.innerHTML = LOCK_ICON;
       }
-      this.bodyElement.classList.add("hide");
+      this.hideInfo();
+    }
+  };
+
+  showInfo = () => {
+    this.bodyElement.classList.remove("hide");
+      this.elementReference.classList.add("visible");
+      this.iconElement.classList.add("flipArrow");
+  };
+
+  hideInfo = () => {
+    this.bodyElement.classList.add("hide");
       this.iconElement.classList.remove("flipArrow");
       this.elementReference.classList.remove("visible");
-    }
+  };
+
+  //might not need this one
+  activatePanel = (panel) => {
+    console.log(panel);
+    //if panel is active, change lock to arrow
+    //else vice versa
+  };
+
+  lockPanel = (panel) => {
+    console.log(panel);
   };
 }
