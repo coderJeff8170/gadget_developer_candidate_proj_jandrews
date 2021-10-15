@@ -10,7 +10,6 @@ export default class {
     this.title = title;
 
     this.text = text;
-    
 
     this.elementReference = panelTemplate.cloneNode(true);
     this.headerElement = this.elementReference.querySelector(".header");
@@ -24,6 +23,7 @@ export default class {
       this.isActive = true;
       this.isLocked = false;
       this.iconElement.innerHTML = ARROW_ICON;
+      this.elementReference.classList.add("active");
     } else {
       this.isActive = false;
       this.isLocked = true;
@@ -45,27 +45,50 @@ export default class {
 
     //give the panel an html id
     this.elementReference.id = `panel${this.id}`;
+    this.iconElement.id = `icon${this.id}`;
     //add to the DOM
     this.elementReference.classList.remove("hide");
     panelDisplay.appendChild(this.elementReference);
   };
 
   onToggleInfo = () => {
-      if(!this.isActive){
-          return;
-      }
+    console.log(panelDisplay.children.length);
+    // console.log(this.id+2)
+    if (!this.elementReference.classList.contains("active")) {
+      return;
+    }
+    //TODO: get next element and set it to active, but only if there is one
+    let nextElement;
+    let nextIcon;
+    if (this.id < panelDisplay.children.length) {
+      nextElement = document.getElementById(`panel${this.id + 1}`);
+      nextIcon = document.getElementById(`icon${this.id + 1}`);
+    }
+
+    //or previous reference is active?
+
     if (this.isVisible == false) {
-      // set isVisible to true and show the bodyElement
       this.isVisible = true;
       this.bodyElement.classList.remove("hide");
-      // set next element to active and change it's logo
+      this.iconElement.classList.add("flipArrow");
+      nextElement.classList.add("active");
+      nextIcon.innerHTML = ARROW_ICON;
     } else {
       this.isVisible = false;
       this.bodyElement.classList.add("hide");
+      this.iconElement.classList.remove("flipArrow");
+      nextElement.classList.remove("active");
+      nextIcon.innerHTML = LOCK_ICON;
     } // else set isVisible to false and hide the bodyElement
   };
 
-  //============================================================ setters and getters ================================================================//
+activatePanel = () => {};
 
-  
+hidePanel = () => {};
+
+showPanel = () => {};
+
+lockPanel = () => {};
+
+  //============================================================ setters and getters ================================================================//
 }
