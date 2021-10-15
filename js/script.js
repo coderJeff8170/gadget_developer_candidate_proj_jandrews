@@ -1,12 +1,18 @@
 "use strict";
 
+import Panel from "./Panel.js";
+
 //TODO: refactor to use classes
+// const panelTemplate = document.getElementById("panel-template");
 
 const DATA_URL = "data/data.json";
 const contentSection = document.getElementById("content");
 const ARROW_ICON = '<i class="fas fa-angle-down"></i>';
-const LOCK_ICON = '<i class="fas fa-lock"></i>'
+const LOCK_ICON = '<i class="fas fa-lock"></i>';
 let numPanels;
+
+let testPanel = new Panel(0);
+console.log(testPanel.isActive);
 
 const createButton = (id) => {
   const button = document.createElement("button");
