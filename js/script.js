@@ -11,8 +11,8 @@ const ARROW_ICON = '<i class="fas fa-angle-down"></i>';
 const LOCK_ICON = '<i class="fas fa-lock"></i>';
 let numPanels;
 
-let testPanel = new Panel(0);
-console.log(testPanel.isActive);
+// let testPanel = new Panel(0);
+// console.log(testPanel.isActive);
 
 const createButton = (id) => {
   const button = document.createElement("button");
@@ -82,52 +82,42 @@ const toggleInfo = (id) => {
     button.classList.toggle("flipArrow");
     nextButton.innerHTML = ARROW_ICON;
     nextHeader.classList.toggle("active");
-  } 
+  }
 };
 
 //TODO: see if you can improve this.
 const toggleInfo2 = (id) => {
-    const header = document.getElementById(`header${id}`);
-    //iterate through the panels, lock those who are above id+1, unlock id+1, and open panel with id
-    for(let i = 0; i<numPanels; i++) {
-        //if section i is less than id, don't change
-        //if section i is same as id, show it
-        //if sectin i is +1 id (if section i is open, activate, else lock it)
-        //else, lock it.
-    }
-}
+  const header = document.getElementById(`header${id}`);
+  //iterate through the panels, lock those who are above id+1, unlock id+1, and open panel with id
+  for (let i = 0; i < numPanels; i++) {
+    //if section i is less than id, don't change
+    //if section i is same as id, show it
+    //if sectin i is +1 id (if section i is open, activate, else lock it)
+    //else, lock it.
+  }
+};
 
-const activatePanel = () => {
+const activatePanel = () => {};
 
-}
+const hidePanel = () => {};
 
-const hidePanel = () => {
-    
-}
+const showPanel = () => {};
 
-const showPanel = () => {
-    
-}
-
-const lockPanel = () => {
-
-}
-
-
+const lockPanel = () => {};
 
 fetch(DATA_URL)
   .then((res) => res.json())
   .then((data) => {
     numPanels = data.sections.length;
     data.sections.map((el, i) => {
+      const panel = new Panel(i, el.title.value, el.panel.value);
+      //   const article = createArticle(i);
+      //   contentSection.appendChild(article);
 
-      const article = createArticle(i);
-      contentSection.appendChild(article);
+      //   const header = createHeader(el.title.value, i);
+      //   article.appendChild(header);
 
-      const header = createHeader(el.title.value, i);
-      article.appendChild(header);
-
-      const infoSection = createInfoSection(el.panel.value, i, el.title.value);
-      article.appendChild(infoSection);
+      //   const infoSection = createInfoSection(el.panel.value, i, el.title.value);
+      //   article.appendChild(infoSection);
     });
   });

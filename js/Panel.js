@@ -10,8 +10,7 @@ export default class {
     this.title = title;
 
     this.text = text;
-    this.imageSrc = `images/image${id}.png`;
-    this.imageAlt = `image of ${title}`;
+    
 
     this.elementReference = panelTemplate.cloneNode(true);
     this.headerElement = this.elementReference.querySelector(".header");
@@ -36,6 +35,11 @@ export default class {
 
   renderPanel = () => {
     //fill out the template
+    this.titleElement.innerHTML = this.title;
+    this.bodyTextElement.innerHTML = this.text;
+
+    this.imageElement.src = `images/image${this.id}.png`;
+    this.imageElement.alt = `image of ${this.title}`;
 
     this.headerElement.addEventListener("click", this.onToggleInfo);
 
@@ -47,10 +51,14 @@ export default class {
   };
 
   onToggleInfo = () => {
+      if(!this.isActive){
+          return;
+      }
     if (this.isVisible == false) {
       // set isVisible to true and show the bodyElement
       this.isVisible = true;
       this.bodyElement.classList.remove("hide");
+      // set next element to active and change it's logo
     } else {
       this.isVisible = false;
       this.bodyElement.classList.add("hide");
@@ -58,4 +66,6 @@ export default class {
   };
 
   //============================================================ setters and getters ================================================================//
+
+  
 }
