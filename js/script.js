@@ -10,4 +10,7 @@ fetch(DATA_URL)
     data.sections.map((el, i) => {
       const panel = new Panel(i, el.title.value, el.panel.value);
     });
+  })
+  .catch(e => {
+      console.log(e.message);
   });
