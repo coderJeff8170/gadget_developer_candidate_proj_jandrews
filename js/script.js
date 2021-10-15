@@ -5,6 +5,7 @@
 const DATA_URL = "data/data.json";
 const contentSection = document.getElementById("content");
 const ARROW_ICON = '<i class="fas fa-angle-down"></i>';
+const LOCK_ICON = '<i class="fas fa-lock"></i>'
 let numPanels;
 
 const createButton = (id) => {
@@ -44,7 +45,7 @@ const createHeader = (text, id) => {
 const createInfoSection = (paraText, id, title) => {
   const infoSection = document.createElement("section");
   infoSection.id = `infoSection${id}`;
-  infoSection.className = "infoSection";
+  infoSection.className = "infoSection hide";
   const para = document.createElement("p");
   para.innerHTML = paraText;
   const image = createImage(id, title);
@@ -71,7 +72,7 @@ const toggleInfo = (id) => {
   //TODO: if preceding numbers are not active, do not allow toggle to work (an active class)
   //TODO: if section is active, change nextButton to arrow, or else make it a lock
   if (header.classList.contains("active")) {
-    section.classList.toggle("showSection");
+    section.classList.toggle("hide");
     button.classList.toggle("flipArrow");
     nextButton.innerHTML = ARROW_ICON;
     nextHeader.classList.toggle("active");
@@ -91,7 +92,7 @@ const toggleInfo2 = (id) => {
 }
 
 const activatePanel = () => {
-    
+
 }
 
 const hidePanel = () => {

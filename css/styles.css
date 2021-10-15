@@ -43,12 +43,14 @@ img{
 }
 
 .infoSection {
+    display: flex;
+}
+
+.hide {
   display: none;
 }
 
-.showSection {
-    display: flex;
-}
+
 
 .flipArrow {
     transform: rotate(180deg);
