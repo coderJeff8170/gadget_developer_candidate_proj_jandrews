@@ -1,98 +1,83 @@
-'use strict';
+import Header from "./Header.js";
+import PanelBody from "./PanelBody.js";
 
-const PANEL_TEMPLATE = document.getElementById("panel-template");
 const PANEL_DISPLAY = document.getElementById("content");
-const ARROW_ICON = '<i class="fas fa-angle-down"></i>';
-const LOCK_ICON = '<i class="fas fa-lock"></i>';
+const ARROW_ICON = "fas fa-angle-down";
+const LOCK_ICON = "fas fa-lock";
 
 export default class {
-  constructor(id, title, text) {
+  constructor(id, properties) {
     this.id = id;
-    this.title = title;
-    this.text = text;
+    this.properties = properties;
+    this.header = new Header(id, this.properties);
+    this.panelBody = new PanelBody(id, this.properties);
 
-    this.elementReference = PANEL_TEMPLATE.cloneNode(true);
-    this.headerElement = this.elementReference.querySelector(".header");
-    this.titleElement = this.elementReference.querySelector(".title");
-    this.iconElement = this.elementReference.querySelector(".icon");
-    this.bodyElement = this.elementReference.querySelector(".body");
-    this.bodyTextElement = this.elementReference.querySelector(".body-text");
-    this.imageElement = this.elementReference.querySelector(".image");
-
-    if (id == 0) {
-      this.iconElement.innerHTML = ARROW_ICON;
-      this.elementReference.classList.add("active");
-    } else {
-      this.iconElement.innerHTML = LOCK_ICON;
-    }
-
-    this.renderPanel();
+    return this.getPanel();
   }
 
-  renderPanel = () => {
-    this.titleElement.innerHTML = this.title;
-    this.bodyTextElement.innerHTML = this.text;
-    this.imageElement.src = `images/image${this.id}.png`;
-    this.imageElement.alt = `image of ${this.title}`;
-    this.elementReference.id = `panel${this.id}`;
-    this.iconElement.id = `icon${this.id}`;
+  getPanel = () => {
+    const div = document.createElement("div");
+    div.appendChild(this.header);
+    div.appendChild(this.panelBody);
+    div.setAttribute("id", `panel${this.id}`);
+    div.setAttribute("class", "panel");
+    div.addEventListener("click", this.onClickHeader);
 
-    this.headerElement.addEventListener("click", this.onToggleInfo);
-
-    //add to the DOM
-    this.elementReference.classList.remove("hide");
-    PANEL_DISPLAY.appendChild(this.elementReference);
+    return div;
   };
 
-  onToggleInfo = () => {
-    if (!this.elementReference.classList.contains("active")) {
+  onClickHeader = () => {
+    if (!this.header.classList.contains("active")) {
       return;
     }
-    let nextElement = null;
+
+    let nextHeader = null;
     let nextIcon = null;
     if (this.id < PANEL_DISPLAY.children.length) {
-      nextElement = document.getElementById(`panel${this.id + 1}`);
-      nextIcon = document.getElementById(`icon${this.id + 1}`);
+      nextHeader = document.getElementById(`header${this.id + 1}`);
+      nextIcon = document.getElementById(`fa-icon${this.id + 1}`);
     }
 
-    if (!this.elementReference.classList.contains("visible")) {
-      this.showInfo();
-      if (nextElement) {
-        nextElement.classList.add("active");
-        nextIcon.innerHTML = ARROW_ICON;
+    if (!this.header.classList.contains("visible")) {
+      this.toggleInfo();
+      if (nextHeader) {
+        this.togglePanelActive(nextHeader);
+        this.togglePanelLock(nextIcon);
       }
     } else {
-      if (nextElement) {
-        if (nextElement.classList.contains("visible")) {
+      if (nextHeader) {
+        if (nextHeader.classList.contains("visible")) {
           return;
         }
-        nextElement.classList.remove("active");
-        nextIcon.innerHTML = LOCK_ICON;
+        this.togglePanelActive(nextHeader);
+        this.togglePanelLock(nextIcon);
       }
-      this.hideInfo();
+      this.toggleInfo();
     }
   };
 
-  showInfo = () => {
-    this.bodyElement.classList.remove("hide");
-      this.elementReference.classList.add("visible");
-      this.iconElement.classList.add("flipArrow");
+  toggleInfo = () => {
+    const icon = document.getElementById(`fa-icon${this.id}`);
+    this.panelBody.classList.contains("hide")
+      ? this.panelBody.classList.remove("hide")
+      : this.panelBody.classList.add("hide");
+    this.header.classList.contains("visible")
+      ? this.header.classList.remove("visible")
+      : this.header.classList.add("visible");
+    icon.classList.contains("flipArrow")
+      ? icon.classList.remove("flipArrow")
+      : icon.classList.add("flipArrow");
   };
 
-  hideInfo = () => {
-    this.bodyElement.classList.add("hide");
-      this.iconElement.classList.remove("flipArrow");
-      this.elementReference.classList.remove("visible");
+  togglePanelActive = (panelElement) => {
+    panelElement.classList.contains("active")
+      ? panelElement.classList.remove("active")
+      : panelElement.classList.add("active");
   };
 
-  //might not need this one
-  activatePanel = (panel) => {
-    console.log(panel);
-    //if panel is active, change lock to arrow
-    //else vice versa
-  };
-
-  lockPanel = (panel) => {
-    console.log(panel);
+  togglePanelLock = (panelElement) => {
+    panelElement.classList.contains("fa-lock")
+      ? (panelElement.classList = ARROW_ICON)
+      : (panelElement.classList = LOCK_ICON);
   };
 }
