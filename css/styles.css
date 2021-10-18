@@ -20,6 +20,10 @@ header {
     color: black;
 }
 
+.active {
+  color: black;
+}
+
 header:hover {
   background: rgb(236, 247, 247);
   cursor: pointer;

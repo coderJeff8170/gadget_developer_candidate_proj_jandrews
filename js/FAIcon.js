@@ -1,7 +1,12 @@
 export default class {
-    constructor(id, iconClassName) {
+    constructor(id) {
         this.id = id;
-        this.iconClassName = iconClassName || "fas fa-lock";
+        if(this.id == 0) {
+            this.iconClassName = "fas fa-angle-down";
+        } else {
+            this.iconClassName = "fas fa-lock";
+        }
+        
 
         return this.getIcon();
     }

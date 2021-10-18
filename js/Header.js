@@ -17,6 +17,9 @@ export default class {
       header.appendChild(this.title);
       header.appendChild(this.icon);
       header.setAttribute("id", `header${this.id}`);
+      if(this.id == 0) {
+        header.classList.add("active");
+    }
 
       return header;
     }
