@@ -8,10 +8,11 @@ class PanelBody {
       `./images/image${this.id}.png`,
       `picture of ${this.properties.title.value}`
     );
-
+    //upon creation, return element to creator for appending to DOM
     return this.getPanelBody();
   }
-
+  
+  //create element, set attributes and return to constructor
   getPanelBody = () => {
     const article = document.createElement("article");
     article.appendChild(this.paragraph);

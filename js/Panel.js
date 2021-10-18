@@ -8,11 +8,11 @@ class Panel {
     this.header = new Header(id, this.properties);
     this.panelBody = new PanelBody(id, this.properties);
 
-    //return this particular panel to creator of panel for handling and appending to the DOM
+    //upon creation, return element to creator for appending to DOM
     return this.getPanel();
   }
 
-  //creates a panel div on the DOM, and assigns certain needed attributes
+  //create element, set attributes and return to constructor
   getPanel = () => {
     const div = document.createElement("div");
     div.appendChild(this.header);
