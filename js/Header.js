@@ -1,6 +1,3 @@
-// import FAIcon from "./FAIcon.js";
-// import Title from "./Title.js";
-
 class Header {
   constructor(id, properties) {
     this.id = id;

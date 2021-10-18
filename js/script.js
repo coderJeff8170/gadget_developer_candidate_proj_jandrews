@@ -1,5 +1,4 @@
 "use strict";
-// import Panel from "./Panel.js";
 
 /**
  * NOTE: in order to run simply from HTML file, this project has been refactored to avoid the use of modules
@@ -12,6 +11,7 @@
 const DATA_URL = "data/data.json";
 const PANEL_DISPLAY = document.getElementById("content");
 
+//maps over 'data' array constant in data.js file and creates a new panel for each object in the array.
 data.map((itemData, index) => {
         const panel = new Panel(index, itemData);
         PANEL_DISPLAY.appendChild(panel);

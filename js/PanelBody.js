@@ -1,6 +1,3 @@
-// import PanelImage from "./PanelImage.js";
-// import Paragraph from "./Paragraph.js";
-
 class PanelBody {
   constructor(id, properties) {
     this.id = id;

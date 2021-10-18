@@ -7,7 +7,7 @@
     <title>frog_lifecycle</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="https://kit.fontawesome.com/dac780d437.js" crossorigin="anonymous"></script>
-
+    <!-- To avoid cors issues, classes are used as text/js instead of ES6 modules and imported in the order needed to run -->
     <script defer src="js/data.js"></script>
     <script defer src="js/PanelImage.js"></script>
     <script defer src="js/Paragraph.js"></script>
@@ -20,16 +20,5 @@
   </head>
   <body>
     <main id="content"></main>
-    <div class="panel hide" id="panel-template">
-        <header class="header">
-            <div class="title">Test Title</div>
-            <div class="icon"><i class="fas fa-lock"></i></div>
-        </header>
-        <article class="body hide">
-            <p class="body-text">adsklfjsalkdjfklsajdkfjsakldfjsakdjfklsajdfkljsakdfjskadjfksajd</p>
-            <img class="image" src="images/image0.png" alt="image template">
-        </article>
-    </div>
-    
   </body>
 </html>
