@@ -1,4 +1,4 @@
-export default class {
+class PanelImage {
   constructor(id, source, alt) {
     this.id = id;
     this.source = source || "#";

@@ -1,7 +1,7 @@
-import FAIcon from "./FAIcon.js";
-import Title from "./Title.js";
+// import FAIcon from "./FAIcon.js";
+// import Title from "./Title.js";
 
-export default class {
+class Header {
   constructor(id, properties) {
     this.id = id;
     this.properties = properties;

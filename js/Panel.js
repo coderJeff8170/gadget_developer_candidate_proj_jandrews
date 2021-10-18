@@ -1,11 +1,11 @@
-import Header from "./Header.js";
-import PanelBody from "./PanelBody.js";
+// import Header from "./Header.js";
+// import PanelBody from "./PanelBody.js";
 
-const PANEL_DISPLAY = document.getElementById("content");
+// const PANEL_DISPLAY = document.getElementById("content");
 const ARROW_ICON = "fas fa-angle-down";
 const LOCK_ICON = "fas fa-lock";
 
-export default class {
+class Panel {
   constructor(id, properties) {
     this.id = id;
     this.properties = properties;

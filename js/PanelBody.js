@@ -1,7 +1,7 @@
-import PanelImage from "./PanelImage.js";
-import Paragraph from "./Paragraph.js";
+// import PanelImage from "./PanelImage.js";
+// import Paragraph from "./Paragraph.js";
 
-export default class {
+class PanelBody {
   constructor(id, properties) {
     this.id = id;
     this.properties = properties;

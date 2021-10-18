@@ -1,4 +1,4 @@
-export default class {
+class Title {
   constructor(id, titleText) {
     this.id = id;
     this.titleText = titleText;

@@ -1,4 +1,4 @@
-export default class {
+class FAIcon {
   constructor(id) {
     this.id = id;
     if (this.id == 0) {
