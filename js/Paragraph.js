@@ -8,8 +8,7 @@ export default class {
 
   getParagraph = () => {
     const para = document.createElement("p");
-    const node = document.createTextNode(this.text);
-    para.appendChild(node);
+    para.innerHTML = this.text;
     para.setAttribute("id", `paragraph${this.id}`);
     para.setAttribute("class", "body-text");
 
