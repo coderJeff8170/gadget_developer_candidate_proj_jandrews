@@ -11,9 +11,9 @@ export default class {
   }
 
   getIcon = () => {
-    const icon = document.createElement("i");
-    icon.setAttribute("id", `fa-icon${this.id}`);
-    icon.setAttribute("class", this.iconClassName);
+    const icon = $("i");
+    icon.attr("id", `fa-icon${this.id}`);
+    icon.addClass(this.iconClassName);
 
     return icon;
   };

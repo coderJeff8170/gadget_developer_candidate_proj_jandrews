@@ -7,10 +7,10 @@ export default class {
   }
 
   getTitle = () => {
-    const title = document.createElement("span");
-    title.innerText = this.titleText;
-    title.setAttribute("id", `title${this.id}`);
-    title.setAttribute("class", "title");
+    const title = $("span");
+    title.text(this.titleText);
+    title.attr("id", `title${this.id}`);
+    title.attr("class", "title");
 
     return title;
   };

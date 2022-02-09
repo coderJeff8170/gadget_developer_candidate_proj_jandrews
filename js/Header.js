@@ -12,12 +12,12 @@ export default class {
   }
 
   getHeader = () => {
-    const header = document.createElement("header");
-    header.appendChild(this.title);
-    header.appendChild(this.icon);
-    header.setAttribute("id", `header${this.id}`);
+    const header = $("header");
+    header.append(this.title);
+    header.append(this.icon);
+    header.attr("id", `header${this.id}`);
     if (this.id == 0) {
-      header.classList.add("active");
+      header.addClass("active");
     }
 
     return header;

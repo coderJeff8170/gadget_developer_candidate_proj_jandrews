@@ -7,10 +7,10 @@ export default class {
   }
 
   getParagraph = () => {
-    const para = document.createElement("p");
-    para.innerHTML = this.text;
-    para.setAttribute("id", `paragraph${this.id}`);
-    para.setAttribute("class", "body-text");
+    const para = $("p");
+    para.html(this.text);
+    para.attr("id", `paragraph${this.id}`);
+    para.attr("class", "body-text");
 
     return para;
   };
