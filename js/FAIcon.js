@@ -13,9 +13,9 @@ class FAIcon {
 
   //create element, set attributes and return to constructor
   getIcon = () => {
-    const icon = document.createElement("i");
-    icon.setAttribute("id", `fa-icon${this.id}`);
-    icon.setAttribute("class", this.iconClassName);
+    const icon = $("<i></i>");
+    icon.attr("id", `fa-icon${this.id}`);
+    icon.addClass(this.iconClassName);
 
     return icon;
   };
