@@ -1,17 +1,17 @@
 export default class {
-  constructor(id, text) {
-    this.id = id;
-    this.text = text;
+    constructor(id, text) {
+        this.id = id
+        this.text = text
 
-    return this.getParagraph();
-  }
+        return this.getParagraph()
+    }
 
-  getParagraph = () => {
-    const para = document.createElement("p");
-    para.innerHTML = this.text;
-    para.setAttribute("id", `paragraph${this.id}`);
-    para.setAttribute("class", "body-text");
+    getParagraph = () => {
+        const para = document.createElement('p')
+        para.innerHTML = this.text
+        para.setAttribute('id', `paragraph${this.id}`)
+        para.setAttribute('class', 'body-text')
 
-    return para;
-  };
+        return para
+    }
 }
