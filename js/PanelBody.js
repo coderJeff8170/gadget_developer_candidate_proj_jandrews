@@ -14,11 +14,11 @@ class PanelBody {
   
   //create element, set attributes and return to constructor
   getPanelBody = () => {
-    const article = document.createElement("article");
-    article.appendChild(this.paragraph);
-    article.appendChild(this.image);
-    article.setAttribute("id", `article${this.id}`);
-    article.setAttribute("class", "body hide");
+    const article = $("<article></article>");
+    article.append(this.paragraph);
+    article.append(this.image);
+    article.attr("id", `article${this.id}`);
+    article.addClass("class", "body hide");
 
     return article;
   };

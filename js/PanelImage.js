@@ -9,9 +9,9 @@ class PanelImage {
   
   //create element, set attributes and return to constructor
   getPanelImage = () => {
-    const image = document.createElement("img");
-    image.setAttribute("src", this.source);
-    image.setAttribute("alt", this.alt);
+    const image = $("<img>");
+    image.attr("src", this.source);
+    image.attr("alt", this.alt);
 
     return image;
   };

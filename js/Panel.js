@@ -9,7 +9,7 @@ class Panel {
     this.id = id;
     this.properties = properties;
     this.header = new Header(id, this.properties);
-    // this.panelBody = new PanelBody(id, this.properties);
+    this.panelBody = new PanelBody(id, this.properties);
 
     //upon creation, return element to creator for appending to DOM
     return this.getPanel();
@@ -19,7 +19,7 @@ class Panel {
   getPanel = () => {
     const div = $("<div></div>");
     div.append(this.header);
-    // div.appendChild(this.panelBody);
+    div.append(this.panelBody);
     div.attr("id", `panel${this.id}`);
     div.addClass("panel");
     // div.addEventListener("click", this.onClickHeader);

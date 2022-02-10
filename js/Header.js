@@ -12,7 +12,6 @@ class Header {
   getHeader = () => {
     const header = $("<header></header>");
     header.append(this.title);
-    // header.appendChild(this.icon);
     header.append(this.icon);
     header.attr("id", `header${this.id}`);
     //if it's the first element, allow to be clicked and opened

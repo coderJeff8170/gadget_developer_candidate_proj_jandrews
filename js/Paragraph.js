@@ -8,10 +8,10 @@ class Paragraph {
 
   //create element, set attributes and return to constructor
   getParagraph = () => {
-    const para = document.createElement("p");
-    para.innerHTML = this.text;
-    para.setAttribute("id", `paragraph${this.id}`);
-    para.setAttribute("class", "body-text");
+    const para = $("<p></p>");
+    para.text(this.text);
+    para.attr("id", `paragraph${this.id}`);
+    para.addClass("body-text");
 
     return para;
   };
