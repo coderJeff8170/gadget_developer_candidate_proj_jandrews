@@ -18,7 +18,8 @@ class PanelBody {
     article.append(this.paragraph);
     article.append(this.image);
     article.attr("id", `article${this.id}`);
-    article.addClass("class", "body hide");
+    article.addClass("class", "body");
+    article.hide();
 
     return article;
   };
