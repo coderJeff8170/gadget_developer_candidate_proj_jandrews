@@ -15,6 +15,6 @@ $(document).ready(function () {
     //maps over 'data' array constant in data.js file and creates a new panel for each object in the array.
     data.map((itemData, index) => {
         const panel = new Panel(index, itemData)
-        PANEL_DISPLAY.append(panel)
+        PANEL_DISPLAY.append(panel);
     })
 })

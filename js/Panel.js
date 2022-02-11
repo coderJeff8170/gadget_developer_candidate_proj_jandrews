@@ -15,12 +15,13 @@ class Panel {
 
     //create element, set attributes and return to constructor
     getPanel = () => {
-        const div = $('<div></div>')
+        const div = $('<div></div>').draggable();
         div.append(this.header)
         div.append(this.panelBody)
         div.attr('id', `panel${this.id}`)
         div.addClass('panel')
         div.click(this.onClickHeader)
+        
 
         return div
     }
