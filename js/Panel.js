@@ -21,6 +21,13 @@ class Panel {
         div.attr('id', `panel${this.id}`)
         div.addClass('panel')
         div.click(this.onClickHeader)
+        const keypressHandler = this.onClickHeader;
+        div.keypress((e) => {
+            if (e.which == 13) {
+                console.log("clicked")
+                keypressHandler();
+            }
+        })
         
 
         return div

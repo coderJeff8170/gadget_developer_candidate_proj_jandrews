@@ -10,7 +10,7 @@ class Header {
 
     //create element, set attributes and return to constructor
     getHeader = () => {
-        const header = $('<header></header>')
+        const header = $('<header tabindex="0"></header>')
         header.append(this.title)
         header.append(this.icon)
         header.attr('id', `header${this.id}`)
